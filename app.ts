@@ -6,4 +6,4 @@ function getFullName(firstname: string, surname: string): string {
     return `${firstname} ${surname}`;
 }
 
-console.log(getFullName('true', 'false'));
+console.log(getFullName('Ярослав', 'Гудз'));
