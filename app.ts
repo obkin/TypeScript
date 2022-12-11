@@ -4,6 +4,9 @@ for (const skill of skills) {
     console.log(skill.toLowerCase());
 }
 
-skills
+const res = skills
     .filter((skill: string) => skill !== 'DevOps')
-    .map(skill => skill + '! ');
+    .map(skill => { return 1 })
+    .reduce((a, b) => a + b);
+
+    console.log(res);
