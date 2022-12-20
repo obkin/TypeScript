@@ -1,10 +1,7 @@
-const numbers: [string, number, number] = ['Dev', 1, 2];
+const enum Roles {
+    ADMIN = 1,
+    USER = 2
+}
 
-const [st, num1, num2] = numbers;
+const res = Roles.ADMIN;
 
-console.log(st);
-console.log(num1);
-console.log(num2);
-
-
-const arr: [number, string, ...boolean[]] = [1, 'func'];
