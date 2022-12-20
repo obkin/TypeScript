@@ -1,9 +1,7 @@
-function getFullName(firstname: string, surname: string): string {
-    if (typeof firstname !== 'string') {
-        throw new Error('bad');
-    }
-
-    return `${firstname} ${surname}`;
+const enum StatusCode {
+    SUCCESS = 1,
+    IN_PROCESS = 20,
+    FAILED = 300
 }
 
-console.log(getFullName('Ярослав', 'Гудз'));
+const res = StatusCode.IN_PROCESS;
