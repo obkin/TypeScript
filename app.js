@@ -1,4 +1,5 @@
 "use strict";
+<<<<<<< HEAD
 var StatusCode;
 (function (StatusCode) {
     StatusCode[StatusCode["SUCCESS"] = 200] = "SUCCESS";
@@ -24,3 +25,10 @@ else {
 // 1 - success
 // 2 - in process
 // 3 - was failed
+=======
+const numbers = ['Dev', 1, 2];
+const [st, num1, num2] = numbers;
+console.log(st);
+console.log(num1);
+console.log(num2);
+>>>>>>> 6af4d846e00ca310091b7e245f1ff37de7daaeae

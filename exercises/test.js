@@ -1,0 +1,12 @@
+"use strict";
+let info = {
+    "officeId": 45,
+    "isOpened": false,
+    "contacts": {
+        "phone": "+380964335192",
+        "email": "some@gmail.com",
+        "address": {
+            "city": "Kyiv"
+        }
+    }
+};
