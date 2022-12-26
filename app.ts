@@ -1,10 +1,13 @@
-const numbers: [string, number, number] = ['Dev', 1, 2];
+function logId(id: string | number | boolean) {
+    if (typeof id === 'string') {
+        console.log(id.toLowerCase() + ' - string');
+    } else if (typeof id === 'number') {
+        console.log(id + ' - number');
+    } else {
+        console.log(id + ' - boolean');
+    }
+}
 
-const [st, num1, num2] = numbers;
-
-console.log(st);
-console.log(num1);
-console.log(num2);
-
-
-const arr: [number, string, ...boolean[]] = [1, 'func'];
+logId(1);
+logId('Yarik');
+logId(true);
