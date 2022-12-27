@@ -1,49 +1,16 @@
 
-function logId(id: (string | number | boolean)) {
-    if (typeof id === 'string') {
-        console.log(id);
-    } else {
-        console.log(id);
-    }
+
+
+
+
+function fetchWithAuth(url: string, method: 'GET' | 'POST'): string {
+    return 'str';
 };
 
-logId('someStr');
-logId(1);
-logId(false);
+fetchWithAuth('https://youtube.com', 'GET');
 
 
 
-function logError(err: (string | string[])) {
-    if (Array.isArray(err)) {
-        console.log(err);
-    } else {
-        console.log(err);
-    }
-};
+let method = 'notGET';
 
-
-
-function logObj(obj: { a: number } | { b: number }) {
-    if ('a' in obj) {
-        console.log(obj.a);
-    } else {
-        console.log(obj.b);
-    }
-}
-
-
-
-function logMultipliesId(a: string | number, b: string | boolean) {
-    if (a === b) {
-        console.log(a.toUpperCase);
-        console.log(b.toLowerCase);
-    } else {
-        console.log(a);
-        console.log(b);
-    }
-}
-
-
-
-let a: 12 = 12;
-
+fetchWithAuth('https://youtube.com', method as 'GET');
