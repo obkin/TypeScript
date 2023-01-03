@@ -15,9 +15,14 @@ type UserWithRole = {
 };
 
 let user: UserWithRole = {
-    name: 'Yarik',
-    age: 19,
-    skills: ['1', '2'],
-    id: 9
+    user: {
+        name: 'Yarik',
+        age: 19,
+        skills: ['Front-end', 'Back-end']
+    },
+    role: {
+        name: 'Developer',
+        id: 777
+    }
 };
 
