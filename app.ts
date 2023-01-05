@@ -1,53 +1,55 @@
-type httpMethod = 'GET' | 'POST';
-
-type coolString = string;
-
-function fetchWidthAuth(url: coolString, method: httpMethod): 1 | -1 {
-    return 1;
-}
-
-fetchWidthAuth('http://youtube.com', 'POST');
-
-//
-
-
-type CompanyInfo = {
-    name: string,
-    capital: string,
-    age: number,
-    owners: string[]
-};
-
-type CompanyID = {
-    name: string,
-    compID: number
-};
-
-type CompanyWithID = {
-    info: CompanyInfo,
-    id: CompanyID
-}
-
-
-// interface AboutCompany {
+// type User = {
 //     name: string,
-//     capital: string,
 //     age: number,
-//     owners: string[]
+//     skills: string[]
 // };
 
-let company: CompanyWithID = {
-    info: {
-        name: "DREAM",
-        capital: '$' + 43_876,
-        age: 7,
-        owners: ['Udyanskiy Mykola', 'Dmitriy Gordon', 'Petro Poroshenko']
-    },
+// type Role = {
+//     roleId: number
+// };
 
-    id: {
-        name: "DREAM",
-        compID: 98134
+// type UserWithRole = User & Role;
+
+interface User {
+    name: string,
+    age: number,
+    skills: string[],
+
+    log: (id: number) => string
+};
+
+interface Role {
+    roleId: number
+};
+
+interface Adress {
+    // country: string,
+    // city: string,
+    // street: string,
+    // building: number,
+    // shortAdress: [string | number]
+};
+
+interface Friends {
+    
+}
+
+interface UserWithRole extends User, Role, Adress, Friends {
+    createdAt: Date;
+};
+
+
+
+let user: UserWithRole = {
+    name: 'Yarik',
+    age: 19,
+    skills: ['Front-end', 'Back-end'],
+    roleId: 14,
+    createdAt: new Date,
+
+    log(id) {
+        return 'str';
     }
 };
 
-console.log(company.info.capital);
+user.log(10);
