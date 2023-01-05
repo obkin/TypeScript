@@ -53,3 +53,33 @@ let user: UserWithRole = {
 };
 
 user.log(10);
+
+
+
+
+// interface UserDictionary {
+//     [index: number]: User
+// };
+
+type UserDictionary = {
+    [index: number]: User
+};
+
+// type UserDictionary = Record<number, User>;
+
+let someUser = {
+    name: 'Yaroslav',
+    surname: 'Gudz',
+    age: 19
+}; 
+
+
+let someAnotherUser = 'user'
+let etc = 'user'
+
+
+let usersDictionary = {
+    1: someUser,
+    2: someAnotherUser,
+    3: etc
+};
