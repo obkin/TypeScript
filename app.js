@@ -1,24 +1,37 @@
 "use strict";
-function fetchWidthAuth(url, method) {
-    return 1;
-}
-fetchWidthAuth('http://youtube.com', 'POST');
-// interface AboutCompany {
+// interface User {
 //     name: string,
-//     capital: string,
 //     age: number,
-//     owners: string[]
+//     id: number
 // };
-let company = {
-    info: {
-        name: "DREAM",
-        capital: '$' + 43876,
-        age: 7,
-        owners: ['Udyanskiy Mykola', 'Dmitriy Gordon', 'Petro Poroshenko']
-    },
-    id: {
-        name: "DREAM",
-        compID: 98134
-    }
+const httpMethods0 = 'GET';
+const httpMetho = 'GET';
+const httpMethods2 = 'GET';
+const httpMethods3 = 'FDF';
+const httpMeths5 = 'GET';
+const httpMethods6 = 'fdf';
+const httpMethodhfgs7 = 18;
+const httpMethods8 = 'GET';
+const httpMethods9 = 'GOLA';
+;
+// interface UsersDictionary {
+//     [key: number]: User
+// };
+const user1 = {
+    name: 'Antonio',
+    id: 1
 };
-console.log(company.info.capital);
+const user2 = {
+    name: 'Senya',
+    id: 2
+};
+const user3 = {
+    name: 'Olya',
+    id: 3
+};
+let usersDictionary = {
+    1: user1,
+    2: user2,
+    3: user3
+};
+console.log(usersDictionary);
