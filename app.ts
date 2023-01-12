@@ -1,74 +1,46 @@
-// interface User {
-//     name: string,
-//     age: number,
-//     id: number
-// };
-
-// let user: User = {
-//     name: 'Yarik',
-//     age: 19,
-//     id: 97
-// };
-
-
-type Requests = 'GET' | 'POST' | 18 | 'HOLA' | 'GOLA' | 'FDF' | 'fDF' | 'fdf';
-
-const httpMethods0: Requests = 'GET';
-const httpMetho: Requests = 'GET';
-const httpMethods2: Requests = 'GET';
-const httpMethods3: Requests = 'FDF';
-const httpMeths5: Requests = 'GET';
-const httpMethods6: Requests = 'fdf';
-const httpMethodhfgs7: Requests = 18;
-const httpMethods8: Requests = 'GET';
-const httpMethods9: Requests = 'GOLA';
-
-// --------------------------------------------------------------------
-
 interface User {
-    name: string,
-    id: number,
-
-    log: (number) => string
+    login: string,
+    password?: string
 };
 
-// interface UsersDictionary {
-//     [key: number]: User
-// };
+let user: User = {
+    login: 'kapell228@ukr.net',
+    // password: '123456'
+};
 
-const user1 = {
-    name: 'Antonio',
-    id: 1,
-    
-    log(number) {
-        return '';
+// ------------------------------------
+
+
+
+function multiply(first: number, second?: number): number {
+    if (!second) {
+        return first * first;
+    } else {
+        return first * second;
+    }
+}
+
+multiply(5); 
+
+// ------------------------------------
+
+interface UserPro {
+    login: string,
+    password?: {
+        type: 'primary' | 'secondary'
     }
 };
 
-const user2 = {
-    name: 'Senya',
-    id: 2,
-    
-    log(number) {
-        return '';
-    }
-};
 
-const user3 = {
-    name: 'Olya',
-    id: 3,
-    
-    log(number) {
-        return '';
-    }
-};
+let someUser: UserPro = {
+    login: 'kapell228@ukr.net',
+}
 
-type UsersDictionary = Record<number, User>;
 
-let usersDictionary: UsersDictionary = {
-    1: user1,
-    2: user2,
-    3: user3
-};
 
-console.log(usersDictionary);
+
+function testPass(user: UserPro) {
+    const t = user.password ? user.password.type : undefined;
+}
+ 
+testPass(someUser);
