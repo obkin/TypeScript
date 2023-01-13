@@ -1,4 +1,65 @@
 interface User {
+    name: string,
+    surname?: string
+};
+
+let user: User = {
+    name: 'Yarik',
+    // surname: 'Gudz'
+};
+
+
+// ----------------------------
+
+
+function multiply(first: number, second?: number): number {
+    if (!second) {
+        return first;
+    } else {
+        return first * second;
+    }
+}
+
+multiply(2);
+
+
+// ----------------------------
+
+
+
+interface UserPro {
+    login: string,
+    password?: {
+        type: 'primary' | 'secondary'
+    }
+}
+
+let user1: UserPro = {
+    login: 'kapell228@ukr.net',
+}
+
+function testPass(user: UserPro) {
+    const t = user.password?.type;
+    console.log(t);
+}
+
+testPass(user1);
+
+// ----------------------------
+
+
+function test(param?: number) {
+    const t = param ?? multiply(5);
+    return t;
+}
+
+
+// ----------------------------
+
+
+/*
+
+interface User {
     login: string,
     password?: string
 };
@@ -44,3 +105,5 @@ function testPass(user: UserPro) {
 }
  
 testPass(someUser);
+
+*/

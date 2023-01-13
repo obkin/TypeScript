@@ -1,25 +1,75 @@
 "use strict";
 ;
 let user = {
-    login: 'kapell228@ukr.net',
-    // password: '123456'
+    name: 'Yarik',
+    // surname: 'Gudz'
 };
-// ------------------------------------
+// ----------------------------
 function multiply(first, second) {
     if (!second) {
-        return first * first;
+        return first;
     }
     else {
         return first * second;
     }
 }
-multiply(5);
-;
-let someUser = {
+multiply(2);
+let user1 = {
     login: 'kapell228@ukr.net',
 };
 function testPass(user) {
-    var _a;
-    const t = (_a = user.password) === null || _a === void 0 ? void 0 : _a.type;
+    const t = user.password ? user.password.type : undefined;
+    console.log(t);
 }
+testPass(user1);
+// ----------------------------
+/*
+
+interface User {
+    login: string,
+    password?: string
+};
+
+let user: User = {
+    login: 'kapell228@ukr.net',
+    // password: '123456'
+};
+
+// ------------------------------------
+
+
+
+function multiply(first: number, second?: number): number {
+    if (!second) {
+        return first * first;
+    } else {
+        return first * second;
+    }
+}
+
+multiply(5);
+
+// ------------------------------------
+
+interface UserPro {
+    login: string,
+    password?: {
+        type: 'primary' | 'secondary'
+    }
+};
+
+
+let someUser: UserPro = {
+    login: 'kapell228@ukr.net',
+}
+
+
+
+
+function testPass(user: UserPro) {
+    const t = user.password ? user.password.type : undefined;
+}
+ 
 testPass(someUser);
+
+*/ 
