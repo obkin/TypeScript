@@ -1,109 +1,53 @@
 interface User {
-    name: string,
-    surname?: string
-};
+    login: string;
+    password?: string;
+}
 
-let user: User = {
-    name: 'Yarik',
-    // surname: 'Gudz'
-};
+let user1: User = {
+    login: 'yarik007',
+    // password: 'hhhfffrrr334'
+}
 
+// function
 
-// ----------------------------
-
-
-function multiply(first: number, second?: number): number {
+function multiply(first: number, second: number = 5): number {
     if (!second) {
         return first;
-    } else {
-        return first * second;
     }
+    return first * second;
 }
 
-multiply(2);
+multiply(5);
 
-
-// ----------------------------
-
-
+// obj
 
 interface UserPro {
-    login: string,
+    login: string;
     password?: {
-        type: 'primary' | 'secondary'
+        type: 'primary' | 'secondary';
     }
 }
 
-let user1: UserPro = {
-    login: 'kapell228@ukr.net',
+let user2: UserPro = {
+    login: 'kapellwork@gmail.com',
+    // password: {
+    //     type: 'primary'
+    // }
 }
 
 function testPass(user: UserPro) {
     const t = user.password?.type;
+    return console.log(t);
+}
+
+// testPass(user2);
+
+// ??
+
+function test(param?: string) {
+    const t = param ?? multiply(5);
     console.log(t);
 }
 
-testPass(user1);
+test();
 
-// ----------------------------
-
-
-function test(param?: number) {
-    const t = param ?? multiply(5);
-    return t;
-}
-
-
-// ----------------------------
-
-
-/*
-
-interface User {
-    login: string,
-    password?: string
-};
-
-let user: User = {
-    login: 'kapell228@ukr.net',
-    // password: '123456'
-};
-
-// ------------------------------------
-
-
-
-function multiply(first: number, second?: number): number {
-    if (!second) {
-        return first * first;
-    } else {
-        return first * second;
-    }
-}
-
-multiply(5); 
-
-// ------------------------------------
-
-interface UserPro {
-    login: string,
-    password?: {
-        type: 'primary' | 'secondary'
-    }
-};
-
-
-let someUser: UserPro = {
-    login: 'kapell228@ukr.net',
-}
-
-
-
-
-function testPass(user: UserPro) {
-    const t = user.password ? user.password.type : undefined;
-}
- 
-testPass(someUser);
-
-*/

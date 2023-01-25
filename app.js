@@ -1,75 +1,35 @@
 "use strict";
-;
-let user = {
-    name: 'Yarik',
-    // surname: 'Gudz'
+let user1 = {
+    login: 'yarik007',
+    // password: 'hhhfffrrr334'
 };
-// ----------------------------
-function multiply(first, second) {
+// function
+function multiply(first, second = 5) {
     if (!second) {
         return first;
     }
-    else {
-        return first * second;
-    }
+    return first * second;
 }
-multiply(2);
-let user1 = {
-    login: 'kapell228@ukr.net',
+multiply(5);
+let user2 = {
+    login: 'kapellwork@gmail.com',
+    // password: {
+    //     type: 'primary'
+    // }
 };
 function testPass(user) {
-    const t = user.password ? user.password.type : undefined;
-    console.log(t);
+    var _a;
+    const t = (_a = user.password) === null || _a === void 0 ? void 0 : _a.type;
+    return console.log(t);
 }
-testPass(user1);
-// ----------------------------
-/*
-
-interface User {
-    login: string,
-    password?: string
-};
-
-let user: User = {
-    login: 'kapell228@ukr.net',
-    // password: '123456'
-};
-
-// ------------------------------------
-
-
-
-function multiply(first: number, second?: number): number {
-    if (!second) {
-        return first * first;
-    } else {
-        return first * second;
+// testPass(user2);
+// ??
+function test(param) {
+    if (!param) {
+        console.log(multiply(5));
+    }
+    else {
+        console.log(param);
     }
 }
-
-multiply(5);
-
-// ------------------------------------
-
-interface UserPro {
-    login: string,
-    password?: {
-        type: 'primary' | 'secondary'
-    }
-};
-
-
-let someUser: UserPro = {
-    login: 'kapell228@ukr.net',
-}
-
-
-
-
-function testPass(user: UserPro) {
-    const t = user.password ? user.password.type : undefined;
-}
- 
-testPass(someUser);
-
-*/ 
+test();
