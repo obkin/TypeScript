@@ -1,18 +1,19 @@
 "use strict";
-function logId(id) {
-    console.log(id);
-}
-const a = logId(1);
-console.log(a * 2);
-//
-function multiply(f, s) {
-    if (!s) {
-        return f * f;
+let input;
+input = 1;
+input = 'asd';
+input = ['str1', 'str2'];
+const res = input;
+// ------------------
+function run(i) {
+    if (typeof i == 'number') {
+        console.log(`${i} - is number.`);
+    }
+    else if (typeof i == 'string') {
+        console.log(`${i} - is string.`);
+    }
+    else {
+        console.log(`${i} - unknown`);
     }
 }
-const f1 = () => {
-};
-const f2 = () => {
-    return true;
-};
-f2();
+run(res);

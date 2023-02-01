@@ -1,52 +1,51 @@
 let input: unknown;
 
-input = 2;
+input = 1;
+input = 'asd';
 input = ['str1', 'str2'];
 
-let res: unknown = input; 
-let res2: any = input; 
+const res: unknown = input;
 
-// --------------
+// ------------------
 
 function run(i: unknown) {
-    if (typeof i === 'number') {
-        i + 1;
+    if (typeof i == 'number') {
+        console.log(`${i} - is number.`);
+    } else if (typeof i == 'string') {
+        console.log(`${i} - is string.`);
     } else {
-        return i;
-    }
+        console.log(`${i} - unknown`);
+    } 
 }
 
-run(input);
+run(res);
 
-// --------------
+// ------------------
 
 async function getData() {
     try {
         await fetch('');
-    } catch(error) {
-        if (error instanceof Error) {
-            console.log(error.message);
+    } catch(err) {
+        if (err instanceof Error) {
+            console.log(err.message);
         }
     }
 }
 
-// --------------
+// ------------------
 
 async function getData2() {
     try {
         await fetch('');
-    } catch(error) {
-        const e = error as Error;
-        console.log(e.message);
+    } catch(err) {
+        const error = err as Error;
+        console.log(error.message);
     }
 }
 
-// --------------
-
+// ------------------
 
 type U1 = unknown | number;
 
+type I1 = unknown & number;
 
-type I1 = unknown & string;
-
- 
