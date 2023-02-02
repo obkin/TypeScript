@@ -1,51 +1,55 @@
-let input: unknown;
-
-input = 1;
-input = 'asd';
-input = ['str1', 'str2'];
-
-const res: unknown = input;
+// function generateError(message: string): never {
+//     throw new Error(message);
+// }
 
 // ------------------
 
-function run(i: unknown) {
-    if (typeof i == 'number') {
-        console.log(`${i} - is number.`);
-    } else if (typeof i == 'string') {
-        console.log(`${i} - is string.`);
-    } else {
-        console.log(`${i} - unknown`);
+function dumpError(): never {
+    // return 'str';
+    while(true) {}
+}
+
+// ------------------
+
+function rec() {
+    return rec();
+}
+
+let a: void = undefined;
+
+// ------------------
+
+type paymentAction = 'refund' | 'checkout' | 'reject';
+
+function processAction(action: paymentAction) {
+    switch (action) {
+        case 'refund':
+            //...
+            break;
+        case 'checkout':
+            //...
+            break;
+        case 'reject':
+            //...
+            break;
+        default:
+            const _problem: never = action;
+            throw new Error('Немає такого action!');
+    }
+}
+
+// ------------------
+
+function generateError(message: string): never {
+    throw new Error(message);
+}
+
+function isString(x: string | number): boolean {
+    if (typeof x === 'string') {
+        return true;
+    } else if (typeof x === 'number') {
+        return false;
     } 
+    generateError('error :/');
 }
-
-run(res);
-
-// ------------------
-
-async function getData() {
-    try {
-        await fetch('');
-    } catch(err) {
-        if (err instanceof Error) {
-            console.log(err.message);
-        }
-    }
-}
-
-// ------------------
-
-async function getData2() {
-    try {
-        await fetch('');
-    } catch(err) {
-        const error = err as Error;
-        console.log(error.message);
-    }
-}
-
-// ------------------
-
-type U1 = unknown | number;
-
-type I1 = unknown & number;
 
