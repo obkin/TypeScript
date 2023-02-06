@@ -1,55 +1,32 @@
-// function generateError(message: string): never {
-//     throw new Error(message);
-// }
+// const n1: any = null;
+// const n2: null = null;
 
-// ------------------
+// const n3: undefined = null;
+// const n4: number = null;
+// const n5: string = null;
+// const n6: boolean = null;
 
-function dumpError(): never {
-    // return 'str';
-    while(true) {}
+
+
+interface User {
+    name: string;
 }
 
-// ------------------
-
-function rec() {
-    return rec();
-}
-
-let a: void = undefined;
-
-// ------------------
-
-type paymentAction = 'refund' | 'checkout' | 'reject';
-
-function processAction(action: paymentAction) {
-    switch (action) {
-        case 'refund':
-            //...
-            break;
-        case 'checkout':
-            //...
-            break;
-        case 'reject':
-            //...
-            break;
-        default:
-            const _problem: never = action;
-            throw new Error('Немає такого action!');
+function getUser() {
+    if (Math.random() > 0.5) {
+        return null;
+    } else {
+        return {
+            name: 'Valik'
+        } as User
     }
 }
 
-// ------------------
 
-function generateError(message: string): never {
-    throw new Error(message);
-}
 
-function isString(x: string | number): boolean {
-    if (typeof x === 'string') {
-        return true;
-    } else if (typeof x === 'number') {
-        return false;
-    } 
-    generateError('error :/');
+const user = getUser();
+
+if (user) {
+    const userName = user.name;
 }
 
