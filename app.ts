@@ -1,32 +1,39 @@
-// const n1: any = null;
-// const n2: null = null;
+let a = 5;
+let b: string = a.toString();
 
-// const n3: undefined = null;
-// const n4: number = null;
-// const n5: string = null;
-// const n6: boolean = null;
+let e: string = new String(a).valueOf();
 
+let f: boolean = new Boolean(a).valueOf();
 
+let c = '1';
+let d: number = parseInt(c);
+
+// ------------
 
 interface User {
     name: string;
+    email: string;
+    login: string;
 }
 
-function getUser() {
-    if (Math.random() > 0.5) {
-        return null;
-    } else {
-        return {
-            name: 'Valik'
-        } as User
+const user: User = {
+    name: 'Vasiya',
+    email: 'vasya@ukr.net',
+    login: 'vasya777'
+}
+
+// ------------
+
+interface Admin {
+    name: string;
+    role: number;
+}
+
+
+function userToAdmin(user: User): Admin {
+    return {
+        name: user.login, 
+        role: 1
     }
-}
-
-
-
-const user = getUser();
-
-if (user) {
-    const userName = user.name;
 }
 
