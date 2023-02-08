@@ -1,14 +1,13 @@
-let a = 5;
-let b: string = a.toString();
+const a = 5;
+const b:string = a.toString();
 
 let e: string = new String(a).valueOf();
-
 let f: boolean = new Boolean(a).valueOf();
 
 let c = '1';
 let d: number = parseInt(c);
 
-// ------------
+// ---------
 
 interface User {
     name: string;
@@ -16,23 +15,22 @@ interface User {
     login: string;
 }
 
-const user: User = {
-    name: 'Vasiya',
-    email: 'vasya@ukr.net',
-    login: 'vasya777'
-}
-
-// ------------
-
 interface Admin {
     name: string;
     role: number;
 }
 
+const user: User = {
+    name: 'Vasya',
+    email: 'vasya123@ukr.net',
+    login: 'vasya_vasya'
+}
+
+const admin = userToAdmin(user);
 
 function userToAdmin(user: User): Admin {
     return {
-        name: user.login, 
+        name: user.name,
         role: 1
     }
 }
