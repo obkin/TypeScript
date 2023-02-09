@@ -15,18 +15,22 @@ const user: User = {
     login: 'vasya_vasya'
 }
 
+// ---------
+
 function logId(id: string | number) {
     if (isString(id)) {
-        console.log(id);
-    } else {
-        console.log(id);
+        console.log(`${id} - is string!`);
+    } else if (isNumber(id)) {
+        console.log(`${id} - is number!`);
     }
 }
 
-// ---------
+function isString(a: string | number): a is string {
+    return typeof a === 'string';
+}
 
-function isString(x: string | number): x is string {
-    return typeof x === 'string';
+function isNumber(a: string | number): a is number {
+    return typeof a === 'number'; 
 }
 
 // ---------
@@ -35,34 +39,17 @@ function isAdmin(user: User | Admin): user is Admin {
     return 'role' in user;
 }
 
-function isAdminAlternative(user: User | Admin): user is Admin {
-    return (user as Admin).role !== undefined;
-}
-
 function setRoleZero(user: User | Admin) {
     if (isAdmin(user)) {
         user.role = 0;
     } else {
-        throw new Error(`${user} is not Admin`);
+        throw new Error('User is not Admin.');
     }
 }
 
 // ---------
 
-/*
-
-function func(a: string | number) {
-    if (isElemString(a)) {
-        console.log(a);
-    } else if (typeof a === 'number') {
-        console.log(a);
-    }
-    console.log(a);
+function isAdminAlternative(user: User | Admin): user is Admin {
+    return (user as Admin).role !== undefined;
 }
-
-function isElemString(el: unknown): el is string {
-    return el === 'string';
-}
-
-*/
 
