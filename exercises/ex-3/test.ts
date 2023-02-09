@@ -1,3 +1,5 @@
+/*
+
 // Technical
 
 interface Payment {
@@ -36,3 +38,4 @@ interface PaymentResponseFailed {
     data: PaymentFailed;
 }
 
+*/
