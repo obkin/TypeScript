@@ -1,19 +1,14 @@
-"use strict";
-let input;
-input = 1;
-input = 'asd';
-input = ['str1', 'str2'];
-const res = input;
-// ------------------
-function run(i) {
-    if (typeof i == 'number') {
-        console.log(`${i} - is number.`);
-    }
-    else if (typeof i == 'string') {
-        console.log(`${i} - is string.`);
-    }
-    else {
-        console.log(`${i} - unknown`);
-    }
+class Admin {
+    role;
 }
-run(res);
+
+const admin = new Admin();
+admin.role = 1;
+
+const admin2 = new Admin();
+admin2.role = 2;
+
+console.log(admin);
+console.log(admin2);
+console.log(admin);
+
