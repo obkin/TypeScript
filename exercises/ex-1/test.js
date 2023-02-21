@@ -1,5 +1,5 @@
 "use strict";
-let info = {
+var info = {
     "officeId": 45,
     "isOpened": false,
     "contacts": {
