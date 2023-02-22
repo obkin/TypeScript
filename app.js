@@ -1,17 +1,19 @@
 "use strict";
-var User = (function () {
-    function User(name, age) {
-        this.name = name;
-        this.age = age;
+class User {
+    constructor(ageOrName, age) {
+        if (typeof ageOrName === 'string') {
+            this.name = ageOrName;
+        }
+        else if (typeof ageOrName === 'number') {
+            this.age = ageOrName;
+        }
+        if (typeof age === 'number') {
+            this.age = age;
+        }
     }
-    return User;
-}());
-var user1 = new User('Yarik', 20);
-var user2 = new User('Kolya', 19);
-var user3 = new User('Sasha', 24);
-var user4 = new User('Nonstop', 100);
-user1.name = 'Xuyarik';
-console.log(user1);
-console.log(user2);
-console.log(user3);
-console.log(user4);
+}
+const user1 = new User('Vasya');
+const user2 = new User();
+const user3 = new User(33);
+const user4 = new User('Yarik', 33);
+// const user5 = new User(12, 33);
