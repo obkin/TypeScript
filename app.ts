@@ -1,19 +1,19 @@
 class User {
-    name!: string;
-    age!: number;
+    name: string;
+    age: number;
+
+    constructor();
+    constructor(name: string);
+    constructor(name?: string) {
+        if (typeof name === 'string') {
+            this.name = name;
+        }
+    }
 }
 
-const user1 = new User();
-user1.name = 'Yarik';
-user1.age = 10;
 
-// const user2 = new User('Kolya', 19);
-// const user3 = new User('Sasha', 24);
-// const user4 = new User('Nonstop', 100);
 
-user1.name = 'Xuyarik';
+const user1 = new User('Vasya');
+const user2 = new User( );
+const user3 = new User(33);
 
-console.log(user1);
-// console.log(user2);
-// console.log(user3);
-// console.log(user4);
