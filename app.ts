@@ -6,14 +6,12 @@ enum PaymentStatus {
 
 class Payment {
     id: number;
-    status: PaymentStatus;
-    createdAt: Date;
+    status: PaymentStatus = PaymentStatus.Holded;
+    createdAt: Date = new Date();
     updatedAt: Date;
 
     constructor(id: number) {
         this.id = id;
-        this.createdAt = new Date();
-        this.status = PaymentStatus.Holded;
     }
 
     getPaymentLifeTime(): number {

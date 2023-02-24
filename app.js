@@ -7,9 +7,9 @@ var PaymentStatus;
 })(PaymentStatus || (PaymentStatus = {}));
 class Payment {
     constructor(id) {
-        this.id = id;
-        this.createdAt = new Date();
         this.status = PaymentStatus.Holded;
+        this.createdAt = new Date();
+        this.id = id;
     }
     getPaymentLifeTime() {
         return new Date().getTime() - this.createdAt.getTime();
