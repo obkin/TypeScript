@@ -1,4 +1,6 @@
-class User {
+// ts-05-41
+
+class User1 {
     skills: string[];
 
     addSkill(skill: string);
@@ -12,9 +14,21 @@ class User {
     }
 };
 
+const user1 = new User();
+user1.addSkill('C++');
+user1.addSkill(['C++', 'Java', 'TS']);
+
+// ------------------
 
 
-const user = new User();
-user.addSkill('C++');
-user.addSkill(['C++', 'Java', 'TS']);
+function run1(distance: number): number;
+function run1(distance: string): string;
+function run1(distance: number | string): number | string {
+    if (typeof distance === 'number') {
+        return 1;
+    } else {
+        return 'str';
+    }
+}
 
+run(1);

@@ -1,8 +1,10 @@
-class User1 {
+// ts-05-41
+
+class User {
     skills: string[];
 
     addSkill(skill: string);
-    addSkill(skills: string[])
+    addSkill(skills: string[]);
     addSkill(skillOrSkills: string | string[]): void {
         if (typeof skillOrSkills === 'string') {
             this.skills.push(skillOrSkills);
@@ -12,18 +14,22 @@ class User1 {
     }
 };
 
-const user1 = new User();
-user1.addSkill('C++');
+const user = new User();
+user.addSkill('C++');
+user.addSkill(['C++', 'Java', 'TS']);
 
-// ---------------------
+// --------Function overload----------
 
-function run(distance: string): string
+
 function run(distance: number): number;
-function run(distance: string | number): string | number {
-    if (typeof distance === 'string') {
-        return '';
-    } else {
+function run(distance: string): string;
+function run(distance: number | string): number | string {
+    if (typeof distance === 'number') {
         return 1;
+    } else {
+        return 'str';
     }
 }
+
+run(1);
 
