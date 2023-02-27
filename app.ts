@@ -1,35 +1,20 @@
-enum PaymentStatus {
-    Holded,
-    Processed,
-    Reversed
-}
+class User {
+    skills: string[];
 
-class Payment {
-    id: number;
-    status: PaymentStatus = PaymentStatus.Holded;
-    createdAt: Date = new Date();
-    updatedAt: Date;
-
-    constructor(id: number) {
-        this.id = id;
-    }
-
-    getPaymentLifeTime(): number {
-        return new Date().getTime() - this.createdAt.getTime();
-    }
-
-    unholdPayment(): void {
-        if (this.status === PaymentStatus.Processed) {
-            throw new Error('Помилка: платіж завершено, кошти списані.');
+    addSkill(skill: string);
+    addSkill(skills: string[]);
+    addSkill(skillOrSkills: string | string[]): void {
+        if (typeof skillOrSkills === 'string') {
+            this.skills.push(skillOrSkills);
+        } else {
+            this.skills.concat(skillOrSkills);
         }
-        this.status = PaymentStatus.Reversed;
-        this.updatedAt = new Date();
     }
-}
+};
 
-const payment1 = new Payment(1);
-payment1.unholdPayment();
-console.log(payment1);
-const time = payment1.getPaymentLifeTime();
-console.log(time);
+
+
+const user = new User();
+user.addSkill('C++');
+user.addSkill(['C++', 'Java', 'TS']);
 
