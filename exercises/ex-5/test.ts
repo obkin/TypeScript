@@ -1,6 +1,6 @@
 // ts-05-41 - repeat
 
-class User {
+class User1 {
     skills: string[];
 
     addSkill(skill: string): void;
@@ -14,7 +14,7 @@ class User {
     }
 }
 
-const newUser1 = new User();
+const newUser1 = new User1();
 newUser1.addSkill(['C++', 'TS']);
 
 // ---------------------

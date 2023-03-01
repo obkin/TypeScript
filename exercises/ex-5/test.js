@@ -1,6 +1,6 @@
 "use strict";
 // ts-05-41 - repeat
-class User {
+class User1 {
     addSkill(skillOrSkills) {
         if (typeof skillOrSkills === 'string') {
             this.skills.push(skillOrSkills);
@@ -10,7 +10,7 @@ class User {
         }
     }
 }
-const newUser1 = new User();
+const newUser1 = new User1();
 newUser1.addSkill(['C++', 'TS']);
 function run(distance) {
     if (typeof distance === 'string') {

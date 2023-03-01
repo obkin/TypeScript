@@ -1,48 +1,29 @@
-// ts-5-40 - repeat
+class User {
+    _login: string;
+    password: string;
 
-enum PaymentStatus {
-    Holded,
-    Processed,
-    Reversed
-}
-
-class Payment {
-    id: number;
-    status: PaymentStatus = PaymentStatus.Holded;
-    createdAt: Date = new Date();
-    updatedAt: Date;
-
-    constructor(id: number) {
-        this.id = id;
+    set login(l: string) {
+        this._login = 'user-' + l;
     }
 
-    getPaymentLifeTime(): number {
-        return new Date().getTime() - this.createdAt.getTime();
+    get login() {
+        return 'no_login';
     }
-    
-    unholdPayment(): void {
-        if (this.status === PaymentStatus.Processed) {
-            throw new Error('The payment was processed :/');
-        }
-        this.status = PaymentStatus.Reversed;
-        this.updatedAt = new Date();
-    }
+
+    // setLogin(l: string): void {
+    //     this.login = 'user-' + l;
+    // }
 };
 
-const newPayment1 = new Payment(1);
+const user1 = new User();
 
-newPayment1.unholdPayment();
-console.log(newPayment1);
+/*
+user1.login = 'user-';
+user1.login += 'obkin';
+*/
 
-console.log('\n');
+// user1.setLogin('obkin');
 
-console.log(newPayment1.getPaymentLifeTime());
-
-// ------------------
-
-function paymentAutoUnhold() {
-    if (newPayment1.getPaymentLifeTime() === 30000) {
-        newPayment1.unholdPayment();
-    }
-}
+// user1.login = 'obkin';
+console.log(user1.login);
 
