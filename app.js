@@ -16,14 +16,15 @@ class Payment {
     }
     unholdPayment() {
         if (this.status === PaymentStatus.Processed) {
-            throw new Error('Помилка: платіж завершено, кошти списані.');
+            throw new Error('The payment was processed :/');
         }
         this.status = PaymentStatus.Reversed;
         this.updatedAt = new Date();
     }
 }
-const payment1 = new Payment(1);
-payment1.unholdPayment();
-console.log(payment1);
-const time = payment1.getPaymentLifeTime();
-console.log(time);
+;
+const newPayment1 = new Payment(1);
+newPayment1.unholdPayment();
+console.log(newPayment1);
+console.log('-------LifeTime--------');
+console.log(newPayment1.getPaymentLifeTime());

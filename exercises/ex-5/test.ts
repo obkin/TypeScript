@@ -1,10 +1,10 @@
-// ts-05-41
+// ts-05-41 - repeat
 
 class User {
     skills: string[];
 
-    addSkill(skill: string);
-    addSkill(skills: string[]);
+    addSkill(skill: string): void;
+    addSkill(skills: string[]): void;
     addSkill(skillOrSkills: string | string[]): void {
         if (typeof skillOrSkills === 'string') {
             this.skills.push(skillOrSkills);
@@ -12,24 +12,23 @@ class User {
             this.skills.concat(skillOrSkills);
         }
     }
-};
+}
 
-const user = new User();
-user.addSkill('C++');
-user.addSkill(['C++', 'Java', 'TS']);
+const newUser1 = new User();
+newUser1.addSkill(['C++', 'TS']);
 
-// --------Function overload----------
+// ---------------------
 
 
 function run(distance: number): number;
 function run(distance: string): string;
 function run(distance: number | string): number | string {
-    if (typeof distance === 'number') {
-        return 1;
-    } else {
+    if (typeof distance === 'string') {
         return 'str';
+    } else {
+        return 1;
     }
 }
 
-run(1);
+run(2);
 

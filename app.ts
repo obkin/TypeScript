@@ -1,34 +1,48 @@
-// ts-05-41
+// ts-5-40 - repeat
 
-class User1 {
-    skills: string[];
+enum PaymentStatus {
+    Holded,
+    Processed,
+    Reversed
+}
 
-    addSkill(skill: string);
-    addSkill(skills: string[]);
-    addSkill(skillOrSkills: string | string[]): void {
-        if (typeof skillOrSkills === 'string') {
-            this.skills.push(skillOrSkills);
-        } else {
-            this.skills.concat(skillOrSkills);
+class Payment {
+    id: number;
+    status: PaymentStatus = PaymentStatus.Holded;
+    createdAt: Date = new Date();
+    updatedAt: Date;
+
+    constructor(id: number) {
+        this.id = id;
+    }
+
+    getPaymentLifeTime(): number {
+        return new Date().getTime() - this.createdAt.getTime();
+    }
+    
+    unholdPayment(): void {
+        if (this.status === PaymentStatus.Processed) {
+            throw new Error('The payment was processed :/');
         }
+        this.status = PaymentStatus.Reversed;
+        this.updatedAt = new Date();
     }
 };
 
-const user1 = new User();
-user1.addSkill('C++');
-user1.addSkill(['C++', 'Java', 'TS']);
+const newPayment1 = new Payment(1);
+
+newPayment1.unholdPayment();
+console.log(newPayment1);
+
+console.log('\n');
+
+console.log(newPayment1.getPaymentLifeTime());
 
 // ------------------
 
-
-function run1(distance: number): number;
-function run1(distance: string): string;
-function run1(distance: number | string): number | string {
-    if (typeof distance === 'number') {
-        return 1;
-    } else {
-        return 'str';
+function paymentAutoUnhold() {
+    if (newPayment1.getPaymentLifeTime() === 30000) {
+        newPayment1.unholdPayment();
     }
 }
 
-run(1);

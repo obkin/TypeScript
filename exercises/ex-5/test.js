@@ -1,12 +1,23 @@
 "use strict";
+// ts-05-41 - repeat
 class User {
-    addSkill(skill) {
-        this.skill = skill;
+    addSkill(skillOrSkills) {
+        if (typeof skillOrSkills === 'string') {
+            this.skills.push(skillOrSkills);
+        }
+        else {
+            this.skills.concat(skillOrSkills);
+        }
     }
 }
-;
-const user1 = new User();
-const user2 = new User();
-const user3 = new User();
-user1.addSkill(['C++', 'PHP']);
-user1.addSkill('JS');
+const newUser1 = new User();
+newUser1.addSkill(['C++', 'TS']);
+function run(distance) {
+    if (typeof distance === 'string') {
+        return 'str';
+    }
+    else {
+        return 1;
+    }
+}
+run(2);
