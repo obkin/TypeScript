@@ -9,10 +9,4 @@ class User {
 }
 ;
 const user1 = new User();
-/*
-user1.login = 'user-';
-user1.login += 'obkin';
-*/
-// user1.setLogin('obkin');
-// user1.login = 'obkin';
 console.log(user1.login);
