@@ -1,24 +1,37 @@
-class User {
-    _login: string;
-    password: string;
+interface ILogger {
+    log(...args): void;
+    error(...args): void;
+}
 
-    set login(l: string | number) {
-        this._login = 'user-' + l;
+class Logger implements ILogger {
+    log(...args: any[]): void {
+        console.log(...args);
+    }
+    async error(...args: any[]): Promise<void> {
+        // Кинути в зовнішню систему
+        console.log(...args);
     }
 
-    get login() {
-        return this._login;
+}
+
+// ---------
+
+interface IPayable {
+    pay(paymentId: number): void;
+    price?: number;
+}
+
+class User implements IPayable, IDeletable {
+    delete(): void {
+        throw new Error("Method not implemented.");
     }
-
-    async setPassword(p: string) {
-        //...
+    pay(paymentId: number): void {
+        // ...
     }
+    price?: number | undefined;
+}
 
-};
-
-const user1 = new User();
-
-user1.login = 'obkin';
-
-console.log(user1.login);
+interface IDeletable {
+    delete(): void;
+}
 
