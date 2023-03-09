@@ -10,9 +10,9 @@ class Payment {
         this.id = id;
     }
 
-    // pay() {
-    //     this.status = 'paid';
-    // }
+    pay() {
+        this.status = 'paid';
+    }
 }
 
 class PersistentPayment extends Payment {
@@ -29,11 +29,11 @@ class PersistentPayment extends Payment {
     }
     
     override pay(date?: Date) {
-        // super.pay();
+        super.pay();
         if (date) {
             this.paidAt = date;
         }
     }
 }
 
-new PersistentPayment().
+new PersistentPayment().databaseId;
