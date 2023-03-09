@@ -1,37 +1,39 @@
-interface ILogger {
-    log(...args): void;
-    error(...args): void;
-}
+// ts-5-44
 
-class Logger implements ILogger {
-    log(...args: any[]): void {
-        console.log(...args);
-    }
-    async error(...args: any[]): Promise<void> {
-        // Кинути в зовнішню систему
-        console.log(...args);
+type PaymentStatus = 'new' | 'paid';
+
+class Payment {
+    id: number;
+    status: PaymentStatus = 'new';
+
+    constructor(id: number) {
+        this.id = id;
     }
 
+    // pay() {
+    //     this.status = 'paid';
+    // }
 }
 
-// ---------
+class PersistentPayment extends Payment {
+    databaseId: number;
+    paidAt: Date;
 
-interface IPayable {
-    pay(paymentId: number): void;
-    price?: number;
-}
-
-class User implements IPayable, IDeletable {
-    delete(): void {
-        throw new Error("Method not implemented.");
+    constructor() {
+        const id = Math.random();
+        super(id);
     }
-    pay(paymentId: number): void {
-        // ...
+
+    save() {
+        // save into database 
     }
-    price?: number | undefined;
+    
+    override pay(date?: Date) {
+        // super.pay();
+        if (date) {
+            this.paidAt = date;
+        }
+    }
 }
 
-interface IDeletable {
-    delete(): void;
-}
-
+new PersistentPayment().
